@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Airline Booking system</title> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="flighticon.png">
+    <style>
+    .cookie_box{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 400px;
+	padding: 20px;
+	background:transparent;
+	text-align: center;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.hide{
+	display: none;
+}
+.cookie_box img{
+	width: 70px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 30px;
+}
+.cookie_box h3{
+	display: inline-block;
+	vertical-align: middle;
+	margin:0;
+	font-size: 30px;
+}
+.cookie_box button{
+	padding: 8px 25px;
+	background:#027cb7;
+	color: #fff;
+	font-size: 18px;
+	border:0;
+	outline: 0;
+	cursor: pointer;
+}
+.cookie_box button:focus{
+	background:#054d6f;
+}
+    </style>
+</head>    
+<body>
+   <header> 
+    <nav> 
+        <ol>
+            <li> <a href="flight.html"> Flights </a> </li>
+            <li> <a href="Hotal.html">  Hotal</a></li>
+            <li> <a href="visa.html"> Visa </a></li>
+            <li> <a href="about.html"> About </a></li>
+            <li> <a href="contact.html"> Customer Service </a></li>
+            <li class="a"> <a href="sign up.html"> sign up </a></li>
+            <li class="a"> <a href="login.html"> login </a></li>
+        </ol>
+    </nav>
+   </header>
+   <h1 style="text-align: center;"big>Your Experience Starts Here!</big</h1>
+   <h2 style="font-size:50px"> Life is Short And The World is Wide..! </h2>
+   <div class="cookie_box" id="cookie_box">
+	<img src="cook.webp">
+	<h3>Cookie Policy</h3>
+	<p>This site can store cookies on your website and disclose information in accrdance with our cookie policy <a href="#">Learn more</a></p>
+	<button id="activeBtn">Accept</button>
+</div>
+<script>
+var cookie_box = document.getElementById('cookie_box'),
+activeBtn = document.getElementById('activeBtn');
+
+activeBtn.addEventListener('click',function(){
+	document.cookie = "CookieBy=InventionTricks; expires=" + new Date(2022,0,1).toUTCString();
+	document.cookie = "Name=John; max-age=" + 60*60*24*30;
+	document.cookie = "LastName=deo; max-age=" + 60*60*24*30;
+	
+	if(document.cookie){
+		cookie_box.classList.add('hide');
+	}else{
+		alert("cookie not set! Please allow this site from your browser cookie setting");
+	}
+
+})
+
+function getCookieName(name) {
+    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    return r ? r[1] : '';
+}
+var getCookieName = getCookieName('CookieBy');
+if(getCookieName === 'InventionTricks'){
+	cookie_box.classList.add('hide');
+}
+</script>
+</body>
+</html> 
